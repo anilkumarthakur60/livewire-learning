@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class HelloWorld extends Component
 {
-    public $name;
+    public $name = "aman";
 
     public $loud = false;
 
@@ -19,8 +19,9 @@ class HelloWorld extends Component
         return view('livewire.hello-world');
     }
 
-    public function resetName()
+    public function resetName($names)
     {
-        $this->name = 'Chico';
+
+        $this->name = $names;
     }
 }
