@@ -54,8 +54,28 @@
     <span class="badge bg-success">{{ $greets }}</span>
     @endforeach
     <hr>
-    <button wire:click="resetName($event.target.innerText)" class=" btn btn-sm btn-success text-white fw-bold">Reset
-        Name</button>
-    <button wire:click="resetName('newNameAnilKumarThakur')" class=" btn btn-sm btn-success text-white fw-bold">Reset
-        Name</button>
+    <button wire:click="resetName($event.target.innerText)" class=" btn btn-sm btn-success text-white fw-bold">Inner
+        Button Text Change</button>
+    <button wire:mouseenter="resetName('newNameAnilKumarThakur')"
+        wire:mouseleave="resetName('newNameAnilKumarThakurleave')" class=" btn btn-sm btn-success text-white fw-bold">
+        Mouse Hover set/reset</button>
+    <button wire:click="resetName('hello clicked name')" class=" btn btn-sm btn-success text-white fw-bold">Button
+        Click Method Target</button>
+
+    <hr>
+
+
+    <form action="#" wire:submit="resetName('newNameAnilKumarThakur')">
+
+        <button type="submit" class=" btn btn btn-sm btn-danger">Form Submit method target</button>
+    </form>
+    <hr>
+
+    <form action="#" wire:submit="$set('name','bingo')">
+
+        <button type="submit" class=" btn btn btn-sm btn-danger">inline Value change</button>
+    </form>
+    <hr>
+
+    <h6 class="text-center">LiveWire LifeCycle Hooks</h6>
 </div>
