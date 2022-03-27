@@ -17,9 +17,8 @@
 </head>
 
 <body class="antialiased">
-    @livewire('hello-world')
-
-
+    @livewire('hello-world',['newName'=>'component passed name'])
+    {{-- @livewire('hello-world') --}}
     @livewireScripts()
 
 </body>

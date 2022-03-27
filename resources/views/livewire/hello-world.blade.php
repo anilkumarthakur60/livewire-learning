@@ -1,10 +1,11 @@
 <div class="container mt-5">
 
+    <input type="text" wire:model="newName" class="form-control">
+    <hr>
 
     <input type="text" wire:model.lazy="name" class="form-control">
     <h6>
         hello world from <span class="text-danger"> {{ $name }}</span>
-
     </h6>
 
     <hr>
@@ -77,5 +78,19 @@
     </form>
     <hr>
 
-    <h6 class="text-center">LiveWire LifeCycle Hooks</h6>
+    <h6 class="text-center">LiveWire LifeCycle Hooks End Here</h6>
+</div>
+<hr>
+
+
+
+
+<div class="container mb-5">
+    <div class="container">
+        <div class="row">
+            @foreach ($greetings as $greets)
+            @livewire('say-hi',['name'=>'childPassedName',key($greets)])
+            @endforeach
+        </div>
+    </div>
 </div>
