@@ -79,18 +79,28 @@
     <hr>
 
     <h6 class="text-center">LiveWire LifeCycle Hooks End Here</h6>
-</div>
-<hr>
 
-
-
-
-<div class="container mb-5">
-    <div class="container">
+    <hr>
+    <div class="mb-5">
         <div class="row">
-            @foreach ($greetings as $greets)
-            @livewire('say-hi',['name'=>'childPassedName',key($greets)])
-            @endforeach
+
+            <div class="col-12">
+                @foreach ($contacts as $contactItem)
+                @livewire('say-hi',['itemId'=>$contactItem,key($contactItem->id)])
+                @endforeach
+            </div>
+            <div class="col-12">
+                {{ now() }}
+                <button wire:click="$emit('refreshChildren')">Refresh Children(only emit to children)</button>
+                <button wire:click="refreshChildren">Refresh Children(whole file emitted)</button>
+                <button wire:click="$emit('foo')">Refresh Children(whole file emitted)</button>
+            </div>
         </div>
+
+    </div>
+
+    <div class="my-5">
+
+        @livewire('contact-livewire')
     </div>
 </div>
