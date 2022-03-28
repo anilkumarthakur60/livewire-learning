@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\NewRegister;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,11 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+// Route::get('newRegister', function () {
+//     return view('register.register');
+// });
+
+
+Route::livewire('/new-register', NewRegister::class)->layout('layout.exampleLayout');
